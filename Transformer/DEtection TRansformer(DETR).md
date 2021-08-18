@@ -10,3 +10,4 @@
 <div align=center><img src="https://user-images.githubusercontent.com/65380826/129825728-d390a164-63ea-4a22-b42f-1c993f8655d5.png"></div>
 
 ### Backbone
+Backbone部分是传统的CNN结构，输入图像为（H，W，3），输出feature map（H/32，W/32，C），通常C取2048
