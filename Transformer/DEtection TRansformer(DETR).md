@@ -9,5 +9,15 @@
 ## 整体结构
 <div align=center><img src="https://user-images.githubusercontent.com/65380826/129825728-d390a164-63ea-4a22-b42f-1c993f8655d5.png"></div>
 
-### Backbone
-Backbone部分是传统的CNN结构，输入图像为（H，W，3），输出feature map（H/32，W/32，C），通常C取2048
+### 1、Backbone
+（1）Backbone部分是传统的CNN结构，输入image（H0，W0，3），输出feature map（H，W，C），其中H=H0/32，W=W0/32，C通常取2048。
+
+（2）然后用1×1的卷积核维度压缩到d，（H，W，d）
+
+（3）最后把宽高压缩成一个维度的feature map，即（H * W，d）
+### 2、Encoder
+feature map + positional encoding构成transformer encoder的输入（positional encoding维度与feature map相同）
+
+### 3、Decoder
+
+### 4、Prediction Heads
