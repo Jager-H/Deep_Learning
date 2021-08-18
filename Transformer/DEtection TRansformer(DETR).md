@@ -29,7 +29,9 @@ transformer encoder和transformer decoder的结构与Transformer基本相同
 > 
 > 此外，和原始的Transformer不同的是，DETR的Transformer Decoder是一次性处理全部的object queries，即一次性输出全部的predictions；而不像原始的Transformer是auto-regressive的，从左到右一个词一个词地输出。
 > 
-> N个目标quries被decoder转换为N个输出。然后这些输出被独立的FFN解码为类别标签和box预测作为最终结果。
+> N个object quries被decoder转换为N个输出。
 
-最终输出结果为（num_queries，）
+输出结果为（N，channel），N为object queries的序列长度，通常取100，即一幅图最多可以预测100个目标。
 ### 3、Prediction Heads
+最后通过一个Linear层输出class预测（N，num_classes+1），第num_classes+1维表示是否为背景
+通过一个多层感知机结构输出box预测（N，4）
