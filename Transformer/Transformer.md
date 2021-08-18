@@ -68,7 +68,7 @@ Add就是Muti-Head Attention的输出结果加上其输入（相当于一个残�
 
 通常使用Layer Normalize而不用Batch Normalize
 > 为什么使用Layer Normalize而不用Batch Normalize？
-#### 3、Feed Forword
+#### 3、Feed Forword Network
 Feed Forword是一个简单的全连接层，共包含两层，第一层将输入的512维向量转成2048维，第二层再把2048维转回512维。
 ### Decoder部分
 decoder分为Autoregressive decoder和Non-Autoregressive decoder
