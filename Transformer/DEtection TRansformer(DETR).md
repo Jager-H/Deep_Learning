@@ -34,4 +34,9 @@ transformer encoder和transformer decoder的结构与Transformer基本相同
 输出结果为（N，channel），N为object queries的序列长度，通常取100，即一幅图最多可以预测100个目标。
 ### 3、Prediction Heads
 最后通过一个Linear层输出class预测（N，num_classes+1），第num_classes+1维表示是否为背景
-通过一个多层感知机结构输出box预测（N，4）
+
+通过一个多层感知机MLP结构输出box预测（N，4），4表示预测框归一化之后的参数(center_x, center_y, height, width)，而不是基于偏移量offset的参数。
+## 损失函数
+
+## 参考
+https://zhuanlan.zhihu.com/p/267156624
