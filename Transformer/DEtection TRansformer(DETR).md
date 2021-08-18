@@ -7,4 +7,6 @@
 代码：https://github.com/facebookresearch/detr
 
 ## 整体结构
-![image](https://user-images.githubusercontent.com/65380826/129825728-d390a164-63ea-4a22-b42f-1c993f8655d5.png)
+<div align=center><img src="https://user-images.githubusercontent.com/65380826/129825728-d390a164-63ea-4a22-b42f-1c993f8655d5.png"></div>
+
+### Backbone
