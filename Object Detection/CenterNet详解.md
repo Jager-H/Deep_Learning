@@ -2,7 +2,7 @@
 ## 前言
 CenterNet是在2019年论文Objects as points中提出，相比yolo，ssd，faster_rcnn依靠大量anchor的检测网络，CenterNet是一种Anchor-free的目标检测网络，在速度和精度上都比较有优势。
 
-论文：https://arxiv.org/abs/1904.07850
+论文：[Objects as Points](https://arxiv.org/abs/1904.07850)
 
 官方源码：https://github.com/xingyizhou/CenterNet
 
