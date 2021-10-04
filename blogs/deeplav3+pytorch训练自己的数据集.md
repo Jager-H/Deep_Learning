@@ -145,7 +145,12 @@ def main():
 if __name__ == '__main__':
     main()
 ```
-#### （2）
+文件修改完成后，cd到json文件所在位置，运行
+```
+labelme_json_to_dataset outputdir
+```
+
+#### （4）
 ## 四、训练模型
 
 ## 五、测试模型
