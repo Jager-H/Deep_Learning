@@ -345,3 +345,7 @@ if __name__ == "__main__":
    main()
 ```
 ### 2、运行测试命令
+```
+ python testdemo.py --ckpt run/Seg552/deeplab-mobilenet/checkpoint.pth.tar --backbone mobilenet --num_classes 3
+```
+> 注意num_classes的值是否匹配,如果命令中删掉--num_classes 3 可以修改代码中第39行的默认值default=3
