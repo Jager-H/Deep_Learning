@@ -239,5 +239,6 @@ RuntimeError: unexpected EOF, expected 21636 more bytes. The file might be corru
 ```
 TypeError: an integer is required (got type tuple)
 ```
+> 解决办法:降低Pillow安装包的版本
 
 ## 五、测试模型
