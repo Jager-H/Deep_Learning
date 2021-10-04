@@ -145,12 +145,38 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
 文件修改完成后，cd到json文件所在位置，运行
 ```
 labelme_json_to_dataset outputdir
 ```
+![image](https://user-images.githubusercontent.com/65380826/135789441-f8606fad-ff5c-40ff-8141-9e507d966adc.png)
 
-#### （4）
+然后在输出目录下找到mask相关文件
+
+![image](https://user-images.githubusercontent.com/65380826/135789536-195f64ab-51b6-4851-b328-112043ac1a85.png)
+
+#### （4）整理label.png文件
+上述每一个文件下都包含五个文件，只有label.png是做语义分割时需要的mask图。新建label.py文件
+```
+import os
+import shutil
+
+inputdir = 'F:/dataset/Mask'
+outputdir = 'F:/dataset/SegmentationClass'
+
+for dir in os.listdir(inputdir):
+    # 设置旧文件名（就是路径+文件名）
+    oldname = inputdir + os.sep + dir + os.sep + 'label.png'  # os.sep添加系统分隔符
+
+    # 设置新文件名
+    newname = outputdir + os.sep + dir.split('_')[0] + '.png'
+
+    shutil.copyfile(oldname, newname)  # 用os模块中的rename方法对文件改名
+    print(oldname, '======>', newname)
+```
+于是得到了SegmentationClass文件下的mask图片
+
 ## 四、训练模型
 
 ## 五、测试模型
