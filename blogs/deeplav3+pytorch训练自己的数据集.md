@@ -213,6 +213,14 @@ with open(outdir + "test.txt", 'w') as f:
 ![1](https://user-images.githubusercontent.com/65380826/135804874-8acc6605-2d14-4c50-a1b7-a8502c8620eb.png)
 ### 2、在train.py中添加自己的数据集名称
 ![2](https://user-images.githubusercontent.com/65380826/135804888-e6fd0efa-ac67-4bb1-b8c4-a4b2d2c227f5.png)
-### 3、在dataloaders/__init__.py中添加自己的数据集名称与路径
+### 3、在dataloaders/__init__.py中第一行
+![3](https://user-images.githubusercontent.com/65380826/135807171-8f8381af-5e75-4fe5-ae4f-eb412c006474.png)
+
+![4](https://user-images.githubusercontent.com/65380826/135807314-1a345668-d091-4881-b598-e5623de005b7.png)
+
+![5](https://user-images.githubusercontent.com/65380826/135807326-4b0c4cb6-4b02-48e7-a650-d8901d505797.png)
+![6](https://user-images.githubusercontent.com/65380826/135807340-38a613af-92ea-4f87-a4d0-cfd7c307fd66.png)
+
+![7](https://user-images.githubusercontent.com/65380826/135807354-133fe108-4878-47f1-9b14-5ca684bbb276.png)
 
 ## 五、测试模型
