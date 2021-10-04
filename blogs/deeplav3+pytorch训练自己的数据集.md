@@ -209,19 +209,24 @@ with open(outdir + "test.txt", 'w') as f:
 ### 3、数据迁移
 以上三个文件夹拷入到路径 ./deeplabv3/dataloaders/Mydataset 下
 ## 四、训练模型
-### 1、在mypath.py中添加自己的数据集名称与路径
+### 1、修改文件
+#### (1)在mypath.py中添加自己的数据集名称与路径
 ![1](https://user-images.githubusercontent.com/65380826/135804874-8acc6605-2d14-4c50-a1b7-a8502c8620eb.png)
-### 2、在train.py中添加自己的数据集名称
+#### (2)在train.py中添加自己的数据集名称
 ![2](https://user-images.githubusercontent.com/65380826/135804888-e6fd0efa-ac67-4bb1-b8c4-a4b2d2c227f5.png)
-### 3、在dataloaders/__init__.py中第一行添加自己的数据集名称,在make_data_loader函数内添加自己数据集的加载方式
+#### (3)在dataloaders/__init__.py中第一行添加自己的数据集名称,在make_data_loader函数内添加自己数据集的加载方式
 ![3](https://user-images.githubusercontent.com/65380826/135807171-8f8381af-5e75-4fe5-ae4f-eb412c006474.png)
-### 4、在dataloaders/utils.py中第24行添加代码(n_classes为分割类别,含背景),在76行左右添加代码，设置每一类别的颜色显示。
+#### (4)在dataloaders/utils.py中第24行添加代码(n_classes为分割类别,含背景),在76行左右添加代码，设置每一类别的颜色显示。
 ![5](https://user-images.githubusercontent.com/65380826/135807326-4b0c4cb6-4b02-48e7-a650-d8901d505797.png)
 
 ![4](https://user-images.githubusercontent.com/65380826/135807314-1a345668-d091-4881-b598-e5623de005b7.png)
-### 5、在dataloaders/datasets目录下添加文件(复制pascal.py为Mydataset.py)
+#### (5)在dataloaders/datasets目录下添加文件(复制pascal.py为Mydataset.py)
 ![6](https://user-images.githubusercontent.com/65380826/135807340-38a613af-92ea-4f87-a4d0-cfd7c307fd66.png)
-修改Mydataset.py里面的类别数和数据集名称
+#### (6)修改Mydataset.py里面的类别数和数据集名称
 ![7](https://user-images.githubusercontent.com/65380826/135807354-133fe108-4878-47f1-9b14-5ca684bbb276.png)
-
+### 2、开始训练
+```
+python train.py --backbone mobilenet --lr 0.007 --workers 1 --epochs 50 --batch-size 8 --gpu-ids 0 --checkname deeplab-mobilenet
+```
+> * 第一次运行时会先下载mobilenet的权重文件
 ## 五、测试模型
