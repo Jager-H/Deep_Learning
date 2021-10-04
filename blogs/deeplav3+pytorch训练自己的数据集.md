@@ -39,8 +39,13 @@ JPEGImage文件夹内存放原图
 SegmentationClass存放原图的掩膜mask
 
 ![Screenshot from 2021-10-03 21-50-09](https://user-images.githubusercontent.com/65380826/135756583-ef05d730-9b56-4eaa-806c-5990742cab33.png)
-### 2、数据集制作流程
+### 2、数据集制作流程（Win10下制作）
+#### （1）打开Anaconda安装labelme
+```
+pip install labelme==3.16.2
+```
 
+#### （2）
 ## 四、训练模型
 
 ## 五、测试模型
