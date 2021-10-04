@@ -176,6 +176,7 @@ for dir in os.listdir(inputdir):
     print(oldname, '======>', newname)
 ```
 于是得到了SegmentationClass文件下的mask图片
+![image](https://user-images.githubusercontent.com/65380826/135790128-7fd54b20-4f49-436c-98ab-3f9f0c8ba05a.png)
 
 ## 四、训练模型
 
