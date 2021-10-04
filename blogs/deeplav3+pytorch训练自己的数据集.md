@@ -44,6 +44,19 @@ SegmentationClass存放原图的掩膜mask
 ```
 pip install labelme==3.16.2
 ```
+![image](https://user-images.githubusercontent.com/65380826/135787965-eeb24ff4-e122-40bb-9d64-fbe8e5c10001.png)
+
+#### （2）打开labelme对数据集进行标注
+直接输入labelme就可以打开
+
+![image](https://user-images.githubusercontent.com/65380826/135788093-c8014e79-ef5e-4673-b5db-59b28959e203.png)
+
+标注后保存为json文件保存在同一个文件夹（该文件夹与图片文件夹JPEGImages在同一目录下）
+
+![image](https://user-images.githubusercontent.com/65380826/135788131-81d30b49-d7b6-46ea-bae3-ba5cd708ba4f.png)
+#### （3）利用json文件批量转产生mask
+找到json_to_dataset.py文件（通常在Anaconda文件所在位置下）
+![image](https://user-images.githubusercontent.com/65380826/135788762-1d1e3b14-ded3-4fb4-ae48-67f3361c8e6e.png)
 
 #### （2）
 ## 四、训练模型
