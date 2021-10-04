@@ -177,6 +177,34 @@ for dir in os.listdir(inputdir):
 ```
 于是得到了SegmentationClass文件下的mask图片
 ![image](https://user-images.githubusercontent.com/65380826/135790128-7fd54b20-4f49-436c-98ab-3f9f0c8ba05a.png)
+#### （5）制作txt文件
+txt.py代码如下：
+```
+from sklearn.model_selection import train_test_split
+import os
+
+imagedir = 'F:/dataset/SegmentationClass/'
+outdir = 'F:/dataset/ImageSets/Segmentation/'
+
+images = []
+for file in os.listdir(imagedir):
+    filename = file.split('.')[0]
+    images.append(filename)
+
+train, test = train_test_split(images, train_size=0.7, random_state=0)
+val, test = train_test_split(test, train_size=0.2 / 0.3, random_state=0)
+
+with open(outdir + "train.txt", 'w') as f:
+    f.write('\n'.join(train))
+
+with open(outdir + "val.txt", 'w') as f:
+    f.write('\n'.join(val))
+
+with open(outdir + "test.txt", 'w') as f:
+    f.write('\n'.join(test))
+```
+最终得到ImageSets/Segmentation下的train.txt，test.txt，val.txt文件
+![Uploading image.png…]()
 
 ## 四、训练模型
 
