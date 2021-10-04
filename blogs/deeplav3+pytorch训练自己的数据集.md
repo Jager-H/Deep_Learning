@@ -204,8 +204,10 @@ with open(outdir + "test.txt", 'w') as f:
     f.write('\n'.join(test))
 ```
 最终得到ImageSets/Segmentation下的train.txt，test.txt，val.txt文件
-![Uploading image.png…]()
 
+![image](https://user-images.githubusercontent.com/65380826/135795791-65f91998-2ee0-4ed4-8a21-89b18045cbb5.png)
+#### （6）数据迁移
+以上三个文件夹拷入到路径 ./deeplabv3/dataloaders/Mydataset 下
 ## 四、训练模型
 
 ## 五、测试模型
