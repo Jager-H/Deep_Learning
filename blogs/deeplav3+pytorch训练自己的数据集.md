@@ -228,5 +228,16 @@ with open(outdir + "test.txt", 'w') as f:
 ```
 python train.py --backbone mobilenet --lr 0.007 --workers 1 --epochs 50 --batch-size 8 --gpu-ids 0 --checkname deeplab-mobilenet
 ```
-> * 第一次运行时会先下载mobilenet的权重文件
+
+* 1、第一次运行时会先下载mobilenet的权重文件,如果下载到一半因为网络问题中断,再次运行会报错
+```
+RuntimeError: unexpected EOF, expected 21636 more bytes. The file might be corrupted.
+```
+> 解决办法:卸载原来不完整的权重文件(文件路径在终端窗口有提示),重新运行即可.
+
+* 2、如果Pillow版本太高,可能会报错
+```
+TypeError: an integer is required (got type tuple)
+```
+
 ## 五、测试模型
