@@ -210,5 +210,8 @@ with open(outdir + "test.txt", 'w') as f:
 以上三个文件夹拷入到路径 ./deeplabv3/dataloaders/Mydataset 下
 ## 四、训练模型
 ### 1、在mypath.py中添加自己的数据集名称与路径
+![1](https://user-images.githubusercontent.com/65380826/135804874-8acc6605-2d14-4c50-a1b7-a8502c8620eb.png)
+
+![2](https://user-images.githubusercontent.com/65380826/135804888-e6fd0efa-ac67-4bb1-b8c4-a4b2d2c227f5.png)
 
 ## 五、测试模型
