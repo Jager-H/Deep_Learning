@@ -30,7 +30,7 @@ ImageSets/Segmentation文件夹内存放txt文件
 
 其中train.txt如下所示
 
-![Screenshot from 2021-10-03 21-51-15](https://user-images.githubusercontent.com/65380826/135756630-758f4202-44b9-4d74-bf0b-81d12be28c74.png)
+<img src="https://user-images.githubusercontent.com/65380826/135756630-758f4202-44b9-4d74-bf0b-81d12be28c74.png" width="200" heigth="350">
 
 JPEGImage文件夹内存放原图
 
@@ -49,15 +49,15 @@ pip install labelme==3.16.2
 #### （2）打开labelme对数据集进行标注
 直接输入labelme就可以打开
 
-![image](https://user-images.githubusercontent.com/65380826/135788093-c8014e79-ef5e-4673-b5db-59b28959e203.png)
+<img src="https://user-images.githubusercontent.com/65380826/135788093-c8014e79-ef5e-4673-b5db-59b28959e203.png" width="650" heigth="400">
 
 标注后保存为json文件保存在同一个文件夹（该文件夹与图片文件夹JPEGImages在同一目录下）
+<img src="https://user-images.githubusercontent.com/65380826/135788131-81d30b49-d7b6-46ea-bae3-ba5cd708ba4f.png" width="700" heigth="400">
 
-![image](https://user-images.githubusercontent.com/65380826/135788131-81d30b49-d7b6-46ea-bae3-ba5cd708ba4f.png)
 #### （3）利用json文件批量转产生mask
 找到json_to_dataset.py文件（通常在Anaconda文件所在位置下）
+<img src="https://user-images.githubusercontent.com/65380826/135788762-1d1e3b14-ded3-4fb4-ae48-67f3361c8e6e.png" width="700" heigth="400">
 
-![image](https://user-images.githubusercontent.com/65380826/135788762-1d1e3b14-ded3-4fb4-ae48-67f3361c8e6e.png)
 > 图中json_to_dataset_old.py为原来的json_to_dataset.py文件，新的json_to_dataset.py代码如下
 ```
 import argparse
@@ -154,7 +154,7 @@ labelme_json_to_dataset outputdir
 
 然后在输出目录下找到mask相关文件
 
-![image](https://user-images.githubusercontent.com/65380826/135789536-195f64ab-51b6-4851-b328-112043ac1a85.png)
+<img src="https://user-images.githubusercontent.com/65380826/135789536-195f64ab-51b6-4851-b328-112043ac1a85.png" width="800" heigth="300">
 
 #### （4）整理label.png文件
 上述每一个文件下都包含五个文件，只有label.png是做语义分割时需要的mask图。新建label.py文件
@@ -205,7 +205,8 @@ with open(outdir + "test.txt", 'w') as f:
 ```
 最终得到ImageSets/Segmentation下的train.txt，test.txt，val.txt文件
 
-![image](https://user-images.githubusercontent.com/65380826/135795791-65f91998-2ee0-4ed4-8a21-89b18045cbb5.png)
+<img src="https://user-images.githubusercontent.com/65380826/135795791-65f91998-2ee0-4ed4-8a21-89b18045cbb5.png" width="700" heigth="100">
+
 ### 3、数据迁移
 以上三个文件夹拷入到路径 ./deeplabv3/dataloaders/Mydataset 下
 ## 四、训练模型
