@@ -212,16 +212,19 @@ with open(outdir + "test.txt", 'w') as f:
 ## 四、训练模型
 ### 1、修改文件
 #### (1)在mypath.py中添加自己的数据集名称与路径
-<img src="https://user-images.githubusercontent.com/65380826/135804874-8acc6605-2d14-4c50-a1b7-a8502c8620eb.png" width="700" heigth="100">
+<img src="https://user-images.githubusercontent.com/65380826/135804874-8acc6605-2d14-4c50-a1b7-a8502c8620eb.png" width="800" heigth="100">
+
 #### (2)在train.py中添加自己的数据集名称
-<img src="https://user-images.githubusercontent.com/65380826/135804888-e6fd0efa-ac67-4bb1-b8c4-a4b2d2c227f5.png" width="700" heigth="100">
+<img src="https://user-images.githubusercontent.com/65380826/135804888-e6fd0efa-ac67-4bb1-b8c4-a4b2d2c227f5.png" width="800" heigth="100">
+
 #### (3)在dataloaders/__init__.py中第一行添加自己的数据集名称,在make_data_loader函数内添加自己数据集的加载方式
-<img src="https://user-images.githubusercontent.com/65380826/135807171-8f8381af-5e75-4fe5-ae4f-eb412c006474.png" width="700" heigth="100">
+<img src="https://user-images.githubusercontent.com/65380826/135807171-8f8381af-5e75-4fe5-ae4f-eb412c006474.png" width="800" heigth="100">
 
 #### (4)在dataloaders/utils.py中第24行添加代码(n_classes为分割类别,含背景),在76行左右添加代码，设置每一类别的颜色显示。
-<img src="https://user-images.githubusercontent.com/65380826/135807326-4b0c4cb6-4b02-48e7-a650-d8901d505797.png" width="700" heigth="100">
+<img src="https://user-images.githubusercontent.com/65380826/135807326-4b0c4cb6-4b02-48e7-a650-d8901d505797.png" width="800" heigth="100">
 
-<img src="https://user-images.githubusercontent.com/65380826/135807314-1a345668-d091-4881-b598-e5623de005b7.png" width="700" heigth="100">
+<img src="https://user-images.githubusercontent.com/65380826/135807314-1a345668-d091-4881-b598-e5623de005b7.png" width="800" heigth="100">
+
 #### (5)在dataloaders/datasets目录下添加文件(复制pascal.py为Mydataset.py)
 ![6](https://user-images.githubusercontent.com/65380826/135807340-38a613af-92ea-4f87-a4d0-cfd7c307fd66.png)
 #### (6)修改Mydataset.py里面的类别数和数据集名称
