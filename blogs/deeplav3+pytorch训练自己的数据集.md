@@ -25,9 +25,9 @@ tqdm
 - SegmentationClass
 ```
 ImageSets/Segmentation文件夹内存放txt文件
-
-![Screenshot from 2021-10-03 21-50-36](https://user-images.githubusercontent.com/65380826/135756618-875d39c9-480d-4c92-b1b5-c152f295065b.png)
-
+<div align=center>
+<img src="https://user-images.githubusercontent.com/65380826/135756618-875d39c9-480d-4c92-b1b5-c152f295065b.png" width="780" heigth="505">
+</div>
 其中train.txt如下所示
 
 ![Screenshot from 2021-10-03 21-51-15](https://user-images.githubusercontent.com/65380826/135756630-758f4202-44b9-4d74-bf0b-81d12be28c74.png)
