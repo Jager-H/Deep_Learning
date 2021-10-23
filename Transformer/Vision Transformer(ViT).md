@@ -2,7 +2,7 @@
 ## 前言
 Transformer最初提出是针对NLP领域的，并且在NLP领域大获成功。ViT则是Transformer在CV领域（主要是图像分类）的应用，试图取代CNN在CV领域多年来的统治地位。
 
-论文：[An Image Is Worth 16x16 Words: Transformers For Image Recognition At Scale](https://arxiv.org/abs/2010.11929)
+论文：[An Image Is Worth 16x16 Words: Transformers For Image Recognition At Scale](https://arxiv.org/pdf/2010.11929.pdf)
 
 代码：[pytorch版](https://github.com/lucidrains/vit-pytorch/blob/main/vit_pytorch/vit.py)
 ## 整体结构
