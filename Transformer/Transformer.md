@@ -53,6 +53,7 @@ Attention公式为
 
 ![image](https://user-images.githubusercontent.com/65380826/128865050-12084aa5-4901-4b3b-af39-3c7a6673efe6.png)
 
+* Q和K的相乘本质是计算不同token之间的相似度，而V则起到一个加权的作用。
 并行计算时如下图所示
 <div align=center>
 <img src="https://user-images.githubusercontent.com/65380826/128866405-f75a57af-c32a-4cf7-9a7c-cd627e9c48ef.png" width="580" heigth="505">
