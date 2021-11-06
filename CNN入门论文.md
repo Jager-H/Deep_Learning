@@ -19,7 +19,7 @@
 
 * EfficientNet：之前所有的网络都是在网络的宽度或者深度、图像分辨率中某一个维度上进行改进从而提升CNN的性能，而该网络平衡网络的所有维度（宽度、深度和图像分辨率），最大限度地提高网络整体性能。
 ## 1、LeNet
-论文原文链接：[Gradient-Based Learning Applied to Document Recognition](https://pan.baidu.com/s/1DKvJVHJ7p4_aEHjzGVTPWA)[百度网盘提取码：57qq]
+论文原文链接：[Gradient-Based Learning Applied to Document Recognition](http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf)
 
 中文版参考： [LeNet论文翻译——中文版](http://www.cxyzjd.com/article/qq_34288751/113575650)
 
