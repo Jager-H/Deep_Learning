@@ -44,6 +44,7 @@
 ### Encoder部分
 #### 1、Muti-Head Attention
 在self-attention中，每个单词有3个不同的向量，它们分别是Query向量，Key向量和Value向量，长度均是64。它们是通过3个不同的权值矩阵由嵌入向量乘以三个不同的权值矩阵得到，其中三个矩阵的尺寸也是相同的，均是512×64。
+* “多头”的数量是分组得到的。假如输入1个句子里面有64个单词，那么就存在64个不同的tokens，输入大小为（64，512），如果将其分为8组（d_head=8），每一组大小为（8，512），对每组进行attention的计算。这样一来，模型就可以关注不同方面的信息。
 <div align=center>
 <img src="https://user-images.githubusercontent.com/65380826/128866281-a6b5ac9b-c383-4bc3-b830-545bd3466cfe.png" width="580" heigth="505">
 </div>
