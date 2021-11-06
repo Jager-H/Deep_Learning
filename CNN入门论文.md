@@ -29,7 +29,7 @@
 
 
 ## 2、AlexNet
-论文原文链接：[ImageNet Classification with Deep Convolutional Neural Networks](https://pan.baidu.com/s/1lp5Tqu-hNzz0ru6QAO1New)[百度网盘提取码：xcvx]
+论文原文链接：[ImageNet Classification with Deep Convolutional Neural Networks](https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
 
 中文版参考：[AlexNet论文翻译——中文版](http://noahsnail.com/2017/07/18/2017-07-18-AlexNet%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91%E2%80%94%E2%80%94%E4%B8%AD%E6%96%87%E7%89%88/)
 
@@ -42,7 +42,7 @@
 ![image](https://user-images.githubusercontent.com/65380826/125878969-7d95af17-6da3-4968-805e-38862ced849e.png)
 
 ## 3、Inception & GoogLeNet
-论文原文链接：[Going Deeper with Convolutions](https://pan.baidu.com/s/13i6Euh4hjph0a1-TgWl0rw)[百度网盘提取码：wk3p]
+论文原文链接：[Going Deeper with Convolutions](https://arxiv.org/pdf/1409.4842.pdf)
 
 中文版参考: [GoogLeNet论文翻译——中文版](http://noahsnail.com/2017/07/21/2017-07-21-GoogleNet%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91%E2%80%94%E2%80%94%E4%B8%AD%E6%96%87%E7%89%88/)
 
@@ -56,7 +56,7 @@
 <img src="https://user-images.githubusercontent.com/65380826/125882098-8dc476fd-2528-4cd7-8e5b-ca333f4351e0.png" width="300px"><img src="https://user-images.githubusercontent.com/65380826/125880006-baa8f923-e880-4459-b623-449af589d91d.png" width="300px"><img src="https://user-images.githubusercontent.com/65380826/125880019-5cfd3c86-0c4d-4376-809f-a9e0374e7f9a.png" width="300px">
 
 ## 4、VGG
-论文原文链接：[Very Deep Convolutional Networks for Large-Scale Image Recognition](https://pan.baidu.com/s/1Eh8S9Ce0ho2OxcEmcvHfzA)[百度网盘提取码：6eue]
+论文原文链接：[Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/pdf/1409.1556.pdf)
 
 中文版参考: [VGG论文翻译——中文版](http://noahsnail.com/2017/08/17/2017-08-17-VGG%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91%E2%80%94%E2%80%94%E4%B8%AD%E6%96%87%E7%89%88/)
 
@@ -65,28 +65,27 @@
 ![image](https://user-images.githubusercontent.com/65380826/125882469-55510d38-0925-4920-8977-d2b035670614.png)
 
 ## 5、ResNet
-论文原文链接：[Deep Residual Learning for Image Recognition](https://pan.baidu.com/s/1ZTsN3Yrvv3fKHCEWR3MX3Q)[百度网盘提取码：p34o]
+论文原文链接：[Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385.pdf)
 
 中文版参考: [ResNet论文翻译——中文版](http://noahsnail.com/2017/07/31/2017-07-31-ResNet%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91%E2%80%94%E2%80%94%E4%B8%AD%E6%96%87%E7%89%88/)
 
 ![ScreenClip  4](https://user-images.githubusercontent.com/65380826/125913496-ffdc177f-fdbd-4a83-80e6-2f2544adf8d3.png)
 
 ## 6、DenseNet
-论文原文链接：[Densely Connected Convolutional Networks](https://pan.baidu.com/s/1HsaHA8sGGSwJ3fF4k7liSQ)[百度网盘提取码：g5pk]
-
+论文原文链接：[Densely Connected Convolutional Networks](https://arxiv.org/pdf/1608.06993.pdf)
 中文版参考: [DenseNet论文翻译——中文版](https://alvin.red/2017/10/07/densenet/)
 
 ![ScreenClip  2](https://user-images.githubusercontent.com/65380826/125913344-ea7f0197-6a78-4fe3-a9fe-6a2f9bd7667d.png)
 
 ## 7、SENet
-论文原文链接：[Squeeze-and-Excitation Networks](https://pan.baidu.com/s/1iTTe1GIGHdsDJz-BP6UYVw)[百度网盘提取码：snqd]
+论文原文链接：[Squeeze-and-Excitation Networks](https://arxiv.org/pdf/1709.01507.pdf)
 
 中文版参考: [SENet论文翻译——中文版](http://noahsnail.com/2017/11/20/2017-11-20-Squeeze-and-Excitation%20Networks%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91%E2%80%94%E2%80%94%E4%B8%AD%E6%96%87%E7%89%88/)
 
 ![ScreenClip  3](https://user-images.githubusercontent.com/65380826/125913570-a325f7d1-0203-466b-98ec-323c74409a75.png)
 
 ## 8、EfficientNet
-论文原文链接：[EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks](https://pan.baidu.com/s/1197Db0TcA4AnQcExzhbDCA)[百度网盘提取码：ww98]
+论文原文链接：[EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks](https://arxiv.org/pdf/1905.11946.pdf)
 
 中文版参考: [EfficientNet论文翻译——中文版](https://blog.csdn.net/weixin_42464187/article/details/100939130)
 
