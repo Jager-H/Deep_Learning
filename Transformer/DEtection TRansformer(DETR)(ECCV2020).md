@@ -12,7 +12,7 @@
 ### 1、Backbone
 （1）Backbone部分是传统的CNN结构，输入image（H0，W0，3），输出feature map（H，W，C），其中H=H0/32，W=W0/32，C通常取2048。
 
-（2）然后用1×1的卷积核维度压缩到d，（H，W，d）
+（2）然后用1×1的卷积核维度压缩到d(源码取256)，（H，W，d）
 
 （3）最后把宽高压缩成一个维度的feature map，即（H * W，d）
 
@@ -20,11 +20,17 @@
 ### 2、Encoder + Decoder
 <div align=center><img src="https://user-images.githubusercontent.com/65380826/129853406-6ac11e85-1b41-45ee-af4a-32dcfe3f72ec.png" width="500" heigth="600"></div>
 
-transformer encoder和transformer decoder的结构与Transformer基本相同(参考https://github.com/Jager-H/Deep_Learning/blob/main/Transformer/Transformer.md)
+transformer encoder和transformer decoder的结构与Transformer基本相同，源码计算过程如下：
+输入 X：[H * W，d]，三个参数矩阵Wq、Wk、Wv：[d，d]，偏置b：[d]，通过X * transpose(W)+b 计算得到Q、K、V [H * W，d]。然后分组得到Qi、Ki、Vi [nheads，H * W，d/nheads]，其中nheads通常取8。
 
-Encoder中，计算attention时，q,k是Image features+Spatial positional encoding，v则是Image features。
+headi = Attention（Qi，Ki，Vi）= softmax（Qi * transpose（Ki）/sqrt（d/nheads））Vi -> [nheads，H * W，d/nheads]
 
-Decoder中，第一个attention的q,k是object queries+query_pos，v是object queries；第二个attention的q是第一个attention后面的输出+query_pos，k是encoder的输出+Spatial positional encoding，v则是encoder的输出；
+MultiHead（Q，K，V）= concat（head0，head1，...head8）* transpose（W）+ b # [H * W，d]×[d，d]->[H * W，d]
+
+> Encoder中，计算attention时，q,k是Image features+Spatial positional encoding作为输入，v则是Image features作为输入。
+> 
+> Decoder中，第一个attention的q,k是object queries+query_pos作为输入，v是object queries作为输入；第二个attention的q是第一个attention后面的输出+query_pos作为输入，k是encoder的输出+Spatial positional encoding作为输入，v则是encoder的输出作为输入；
+
 
 * Object queries
 > Object queries是 N 个learnable embedding，训练刚开始时可以随机初始化。在训练过程中，因为需要生成不同的boxes，object queries会被迫使变得不同来反映位置信息，所以也可以称为learnt positional encoding 
