@@ -23,17 +23,17 @@
 transformer encoder和transformer decoder的结构与Transformer基本相同，源码计算过程如下：
 输入 X：[H * W，d]，三个参数矩阵Wq、Wk、Wv：[d，d]，偏置b：[d]，通过X * transpose(W)+b 计算得到Q、K、V [H * W，d]。然后分组得到Qi、Ki、Vi [nheads，H * W，d/nheads]，其中nheads通常取8。
 
-headi = Attention（Qi，Ki，Vi）= softmax（Qi * transpose（Ki）/sqrt（d/nheads））Vi   # [nheads，H * W，d/nheads]×[nheads，d/nheads，H * W]×[nheads，H * W，d/nheads]->[nheads，H * W，d/nheads]
+headi = Attention（Qi，Ki，Vi）= softmax（Qi * transpose（Ki）/sqrt（d/nheads））Vi   
+> [nheads，H * W，d/nheads]×[nheads，d/nheads，H * W]×[nheads，H * W，d/nheads]->[nheads，H * W，d/nheads]
 
-MultiHead（Q，K，V）= concat（head0，head1，...head8）* transpose（W）+ b             # [H * W，d]×[d，d]->[H * W，d]
+MultiHead（Q，K，V）= concat（head0，head1，...head8）* transpose（W）+ b 
+> [H * W，d]×[d，d]->[H * W，d]
 
-> Encoder中，计算attention时，q,k是Image features+Spatial positional encoding作为输入，v则是Image features作为输入。
-> 
-> Decoder中，第一个attention的q,k是object queries+query_pos作为输入，v是object queries作为输入；第二个attention的q是第一个attention后面的输出+query_pos作为输入，k是encoder的输出+Spatial positional encoding作为输入，v则是encoder的输出作为输入；
+* Encoder中，计算attention时，q,k是Image features+Spatial positional encoding作为输入，v则是Image features作为输入。
+* 
+* Decoder中，第一个attention的q,k是object queries+query_pos作为输入，v是object queries作为输入；第二个attention的q是第一个attention后面的输出+query_pos作为输入，k是encoder的输出+Spatial positional encoding作为输入，v则是encoder的输出作为输入；
 
-
-* Object queries
-> Object queries是 N 个learnable embedding，训练刚开始时可以随机初始化。在训练过程中，因为需要生成不同的boxes，object queries会被迫使变得不同来反映位置信息，所以也可以称为learnt positional encoding 
+Object queries是 N 个learnable embedding，训练刚开始时可以随机初始化。在训练过程中，因为需要生成不同的boxes，object queries会被迫使变得不同来反映位置信息，所以也可以称为learnt positional encoding 
 > 
 > 此外，和原始的Transformer不同的是，DETR的Transformer Decoder是一次性处理全部的object queries，即一次性输出全部的predictions；而不像原始的Transformer是auto-regressive的，从左到右一个词一个词地输出。
 > 
