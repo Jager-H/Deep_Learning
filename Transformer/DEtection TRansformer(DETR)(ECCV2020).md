@@ -29,9 +29,9 @@ headi = Attention（Qi，Ki，Vi）= softmax（Qi * transpose（Ki）/sqrt（d/n
 MultiHead（Q，K，V）= concat（head0，head1，...head8）* transpose（W）+ b 
 > [H * W，d]×[d，d]->[H * W，d]
 
-* Encoder中，计算attention时，q,k是Image features+Spatial positional encoding作为输入，v则是Image features作为输入。
-* 
+* Encoder中，计算attention时，q,k是Image features+Spatial positional encoding作为输入，v则是Image features作为输入。 
 * Decoder中，第一个attention的q,k是object queries+query_pos作为输入，v是object queries作为输入；第二个attention的q是第一个attention后面的输出+query_pos作为输入，k是encoder的输出+Spatial positional encoding作为输入，v则是encoder的输出作为输入；
+
 
 Object queries是 N 个learnable embedding，训练刚开始时可以随机初始化。在训练过程中，因为需要生成不同的boxes，object queries会被迫使变得不同来反映位置信息，所以也可以称为learnt positional encoding 
 > 
