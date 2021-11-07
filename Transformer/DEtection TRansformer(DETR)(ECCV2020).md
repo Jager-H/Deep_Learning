@@ -22,7 +22,9 @@
 
 transformer encoder和transformer decoder的结构与Transformer基本相同(参考https://github.com/Jager-H/Deep_Learning/blob/main/Transformer/Transformer.md)
 
-源码中，计算attention时，q,k是通过“src+pos”（输入+位置编码）乘以Wq，Wk得到的，v则是直接通过“src”乘以Wv得到的，而不是编码之后得到的。
+Encoder中，计算attention时，q,k是Image features+Spatial positional encoding，v则是Image features。
+
+Decoder中，第一个attention的q,k是object queries+query_pos，v是object queries；第二个attention的q是第一个attention后面的输出+query_pos，k是encoder的输出+Spatial positional encoding，v则是encoder的输出；
 
 * Object queries
 > Object queries是 N 个learnable embedding，训练刚开始时可以随机初始化。在训练过程中，因为需要生成不同的boxes，object queries会被迫使变得不同来反映位置信息，所以也可以称为learnt positional encoding 
