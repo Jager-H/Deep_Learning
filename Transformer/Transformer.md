@@ -61,7 +61,7 @@ Attention公式为
 </div>
 
 所谓Muti-Head Attention，就是同一句话用多套参数得到不同的Attention，Attention用Zi表示。然后把所有的Zi拼接在一起再乘以权重矩阵W0
-> “多头”的数量是分组得到的。假如输入1个句子里面有64个单词，那么就存在64个不同的tokens，输入大小为（64，512），如果将其分为8组（d_head=8），每一组大小为（8，512），对每组进行attention的计算。这样一来，模型就可以关注不同方面的信息。
+> “多头”的数量是分组得到的。假如输入1个句子里面有10个单词，那么就存在10个不同的tokens，输入大小为（10，512），如果将其分为8组（d_head=8），每一组大小为（10，64），对每组进行attention的计算。这样一来，模型就可以关注不同方面的信息。
 <div align=center>
 <img src="https://user-images.githubusercontent.com/65380826/128866941-aa0ca339-c1c7-4e31-9346-632497e5d5cf.png" width="580" heigth="505">
 </div>
