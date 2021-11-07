@@ -23,9 +23,9 @@
 transformer encoder和transformer decoder的结构与Transformer基本相同，源码计算过程如下：
 输入 X：[H * W，d]，三个参数矩阵Wq、Wk、Wv：[d，d]，偏置b：[d]，通过X * transpose(W)+b 计算得到Q、K、V [H * W，d]。然后分组得到Qi、Ki、Vi [nheads，H * W，d/nheads]，其中nheads通常取8。
 
-headi = Attention（Qi，Ki，Vi）= softmax（Qi * transpose（Ki）/sqrt（d/nheads））Vi -> [nheads，H * W，d/nheads]
+headi = Attention（Qi，Ki，Vi）= softmax（Qi * transpose（Ki）/sqrt（d/nheads））Vi   # [nheads，H * W，d/nheads]×[nheads，d/nheads，H * W]×[nheads，H * W，d/nheads]->[nheads，H * W，d/nheads]
 
-MultiHead（Q，K，V）= concat（head0，head1，...head8）* transpose（W）+ b # [H * W，d]×[d，d]->[H * W，d]
+MultiHead（Q，K，V）= concat（head0，head1，...head8）* transpose（W）+ b             # [H * W，d]×[d，d]->[H * W，d]
 
 > Encoder中，计算attention时，q,k是Image features+Spatial positional encoding作为输入，v则是Image features作为输入。
 > 
