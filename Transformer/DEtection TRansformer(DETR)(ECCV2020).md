@@ -64,7 +64,9 @@ indices = linear_sum_assignment(Cost) # 返回cost最小的[row_id]和[col_id],�
 这样一来就从预测的num_querie个框中找到了n个框与n个真实框一一匹配
 ### 2、根据最优二分图匹配计算prediction loss
 1、计算每对匹配的预测狂和真实框之间的分类loss_label：CE Loss
+
 2、计算每对匹配的预测狂和真实框之间的回归loss_boxes：L1 Loss+GIOU Loss 
+
 3、total loss = weight1 * loss_label + weight2 * loss_boxes
 ## 参考
 https://zhuanlan.zhihu.com/p/267156624
