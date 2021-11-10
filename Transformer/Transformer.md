@@ -115,3 +115,4 @@ Output Vocabulary和Groud truth之间的损失函数采用Cross Entropy
 ## 参考
 https://zhuanlan.zhihu.com/p/48508221
 https://blog.csdn.net/longxinchen_ml/article/details/86533005
+Transfomer简单问答：https://new.qq.com/omn/20210514/20210514A07N1700.html
