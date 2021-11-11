@@ -38,7 +38,7 @@ k、v的输入由halo操作得到，先对每一块block进行padding操作，ha
 
 K，V同理：[(H/bs) * (W/bs)，bs * bs * 4，C] -> [(H/bs) * (W/bs)，bs * bs * 4，D] -> [(H/bs) * (W/bs) * n_heads，bs * bs * 4，D/n_heads]
 
-所以attention = softmax(Q * transpose(K)/sqrt(D/n_heads) + Q * rel_pos) * V 
+<img src="https://latex.codecogs.com/svg.image?Attention&space;=&space;softmax[(Q*K^{T}&plus;Q*r_{a-i,b-j})/\sqrt{d}]*V" title="Attention = softmax[(Q*K^{T}+Q*r_{a-i,b-j})/\sqrt{d}]*V" />
 > 计算bs * bs个token 以及在对token进行halo操作之后的bs * bs * 4个token之间的相似性。
 > rel_pos:relative position
 
