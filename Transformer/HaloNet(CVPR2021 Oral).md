@@ -5,7 +5,7 @@ CNN是一种参数量和感受野相关（parameter-dependent scaling）交互�
 论文：[Scaling Local Self-Attention for Parameter Efficient Visual Backbones](https://arxiv.org/pdf/2103.12731.pdf)
 
 代码：https://github.com/lucidrains/halonet-pytorch （非官方，官方未开源）
-## 核心算法
+## 核心算法（局部自注意力）
 ![image](https://user-images.githubusercontent.com/65380826/141220416-7597f5df-4c4e-42ab-afac-d4fc419d2bcc.png)
 如上图所示，如果每次只考虑block内的信息，必然会导致信息的损失，因此在计算Local Self-Attention之前，作者先对每个block进行的haloing操作。也就是在每个block外，再用原始图片的信息padding一圈（这个操作叫做Halo），使得每个block的感受野能够适当变大，关注更多的信息。
 > Halo是光环、日晕的意思，halo操作在原始的block上再外加一圈额外的信息，就类似在block之外再加了一层光环，起到了增加感受野的作用
@@ -48,7 +48,7 @@ K，V同理：[(H/bs) * (W/bs)，bs * bs * 4，C] -> [(H/bs) * (W/bs)，bs * bs 
 
 [(H/bs) * (W/bs) * n_heads，bs * bs，d] -> [(H/bs) * (W/bs)，bs * bs，D] -> [(H/bs) * (W/bs)，bs * bs，C] -> [H，W，C]
 
-## 算法补充
+## 注意力下采样
 ![image](https://user-images.githubusercontent.com/65380826/141232949-6ce9bef4-d672-4993-955e-991f4ce94d75.png)
 在论文中有一个Subsampling的操作，类似于CNN的pooling操作，使得输出的特征图的大小为原特征图的一半。当生成Q大小为[(H/bs) * (W/bs) * n_heads，bs * bs，D/n_heads]时，先下采样为[(H/bs/2) * (W/bs/2) * n_heads，bs * bs，D/n_heads]，这样最终的输出为[H/2，W/2，C]。这样的操作能够减少4倍的FLOPs，因为这里是对每个block的信息进行采样后计算，而不是对每个block内的信息进行计算，并且这样的操作也是不会影响模型精度的。
 
