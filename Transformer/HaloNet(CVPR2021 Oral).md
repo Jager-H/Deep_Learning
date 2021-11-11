@@ -26,23 +26,21 @@ attn = HaloAttention(
 
 于是得到q的输入：[(H/bs) * (W/bs)，bs * bs，C]
 
-k、v的输入由halo操作得到，先对每一块block进行padding操作，halo后的大小为原来的四倍（长宽各扩充为2倍）
+k、v的输入由halo操作得到，即对每一块block进行padding操作，halo后的大小为
 
-即：[(H/bs) * (W/bs)，C] -> [(2 * H/bs) * (2 * W/bs)，C]
-
-所以k、v的输入：[(H/bs) * (W/bs)，bs * bs * 4，C]
+k、v的输入：[(H/bs) * (W/bs)，(bs+2hs) * (bs+2hs)，C]
 
 于是通过Wq生成Q向量然后利用多头注意力机制：
 
 [(H/bs) * (W/bs)，bs * bs，C] -> [(H/bs) * (W/bs)，bs * bs，D] -> [(H/bs) * (W/bs) * n_heads，bs * bs，d]
 
-K，V同理：[(H/bs) * (W/bs)，bs * bs * 4，C] -> [(H/bs) * (W/bs)，bs * bs * 4，D] -> [(H/bs) * (W/bs) * n_heads，bs * bs * 4，d]
+K，V同理：[(H/bs) * (W/bs)，(bs+2hs) * (bs+2hs)，C] -> [(H/bs) * (W/bs)，(bs+2hs) * (bs+2hs)，D] -> [(H/bs) * (W/bs) * n_heads，(bs+2hs) * (bs+2hs)，d]
 
 <img src="https://latex.codecogs.com/svg.image?Attention&space;=&space;softmax[(Q*K^{T}&plus;Q*r_{a-i,b-j})/\sqrt{d}]*V" title="Attention = softmax[(Q*K^{T}+Q*r_{a-i,b-j})/\sqrt{d}]*V" />
-> 计算bs * bs个token 以及在对token进行halo操作之后的bs * bs * 4个token之间的相似性。
+> 计算bs * bs个token 以及在对token进行halo操作之后的(bs+2hs) * (bs+2hs)个token之间的相似性。
 > rel_pos:relative position
 
-[(H/bs) * (W/bs) * n_heads，bs * bs，d] * [(H/bs) * (W/bs) * n_heads，d，bs * bs * 4] * [(H/bs) * (W/bs) * n_heads，bs * bs * 4，d] = [(H/bs) * (W/bs) * n_heads，bs * bs，d]
+[(H/bs) * (W/bs) * n_heads，bs * bs，d] * [(H/bs) * (W/bs) * n_heads，d，(bs+2hs) * (bs+2hs)] * [(H/bs) * (W/bs) * n_heads，(bs+2hs) * (bs+2hs)，d] = [(H/bs) * (W/bs) * n_heads，bs * bs，d]
 
 然后再映射回原来的维度C
 
