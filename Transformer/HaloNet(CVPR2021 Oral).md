@@ -37,6 +37,7 @@ k、v的输入：[(H/bs) * (W/bs)，(bs+2hs) * (bs+2hs)，C]
 K，V同理：[(H/bs) * (W/bs)，(bs+2hs) * (bs+2hs)，C] -> [(H/bs) * (W/bs)，(bs+2hs) * (bs+2hs)，D] -> [(H/bs) * (W/bs) * n_heads，(bs+2hs) * (bs+2hs)，d]
 
 <img src="https://latex.codecogs.com/svg.image?Attention&space;=&space;softmax[(Q*K^{T}&plus;Q*r_{a-i,b-j})/\sqrt{d}]*V" title="Attention = softmax[(Q*K^{T}+Q*r_{a-i,b-j})/\sqrt{d}]*V" />
+
 > 计算bs * bs个token 以及在对token进行halo操作之后的(bs+2hs) * (bs+2hs)个token之间的相似性。
 > rel_pos:relative position
 
