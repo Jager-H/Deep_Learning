@@ -49,7 +49,7 @@ K，V同理：[(H/bs) * (W/bs)，bs * bs * 4，C] -> [(H/bs) * (W/bs)，bs * bs 
 
 ## 算法补充
 ![image](https://user-images.githubusercontent.com/65380826/141232949-6ce9bef4-d672-4993-955e-991f4ce94d75.png)
-在论文中有一个DownSampling的操作，类似于CNN的pooling操作，使得输出的特征图的大小为原特征图的一半。当生成Q大小为[(H/bs) * (W/bs) * n_heads，bs * bs，D/n_heads]时，先下采样为[(H/bs/2) * (W/bs/2) * n_heads，bs * bs，D/n_heads]，这样最终的输出为[H/2，W/2，C]
+在论文中有一个DownSampling的操作，类似于CNN的pooling操作，使得输出的特征图的大小为原特征图的一半。当生成Q大小为[(H/bs) * (W/bs) * n_heads，bs * bs，D/n_heads]时，先下采样为[(H/bs/2) * (W/bs/2) * n_heads，bs * bs，D/n_heads]，这样最终的输出为[H/2，W/2，C]。这样的操作能够减少4倍的FLOPs，因为这里是对每个block的信息进行采样后计算，而不是对每个block内的信息进行计算，并且这样的操作也是不会影响模型精度的。
 
 ## 算法分析
 Halo操作计算self-attention时，Q是感受野是每个块的大小，生成Q复杂度为（<img src="https://latex.codecogs.com/svg.image?hwC^{2}" title="hwC^{2}" />），K、V的感受野则是每个块的基础上扩充4倍之后的大小，生成K、V的复杂度为（<img src="https://latex.codecogs.com/svg.image?4hwC^{2}" title="4hwC^{2}" />），总复杂度为（<img src="https://latex.codecogs.com/svg.image?9hwC^{2}" title="9hwC^{2}" />），虽然K、V实现了增大感受野的功能，但缺点是复杂度明显提升了。
