@@ -16,7 +16,7 @@ attn = HaloAttention(
     dim = 3,           # 特征图维度C
     block_size = 8,    # 一幅图划分成块的大小 bs
     halo_size = 4,     # 块的感受野
-    dim_head = 64,     # 每个头的维度 D/n_heads
+    dim_head = 64,     # 每个头的维度 d=D/n_heads
     heads = 4          # 头的数量 n_heads
 )
 ```
@@ -34,19 +34,19 @@ k、v的输入由halo操作得到，先对每一块block进行padding操作，ha
 
 于是通过Wq生成Q向量然后利用多头注意力机制：
 
-[(H/bs) * (W/bs)，bs * bs，C] -> [(H/bs) * (W/bs)，bs * bs，D] -> [(H/bs) * (W/bs) * n_heads，bs * bs，D/n_heads]
+[(H/bs) * (W/bs)，bs * bs，C] -> [(H/bs) * (W/bs)，bs * bs，D] -> [(H/bs) * (W/bs) * n_heads，bs * bs，d]
 
-K，V同理：[(H/bs) * (W/bs)，bs * bs * 4，C] -> [(H/bs) * (W/bs)，bs * bs * 4，D] -> [(H/bs) * (W/bs) * n_heads，bs * bs * 4，D/n_heads]
+K，V同理：[(H/bs) * (W/bs)，bs * bs * 4，C] -> [(H/bs) * (W/bs)，bs * bs * 4，D] -> [(H/bs) * (W/bs) * n_heads，bs * bs * 4，d]
 
 <img src="https://latex.codecogs.com/svg.image?Attention&space;=&space;softmax[(Q*K^{T}&plus;Q*r_{a-i,b-j})/\sqrt{d}]*V" title="Attention = softmax[(Q*K^{T}+Q*r_{a-i,b-j})/\sqrt{d}]*V" />
 > 计算bs * bs个token 以及在对token进行halo操作之后的bs * bs * 4个token之间的相似性。
 > rel_pos:relative position
 
-[(H/bs) * (W/bs) * n_heads，bs * bs，D/n_heads] * [(H/bs) * (W/bs) * n_heads，D/n_heads，bs * bs * 4] * [(H/bs) * (W/bs) * n_heads，bs * bs * 4，D/n_heads] = [(H/bs) * (W/bs) * n_heads，bs * bs，D/n_heads]
+[(H/bs) * (W/bs) * n_heads，bs * bs，d] * [(H/bs) * (W/bs) * n_heads，d，bs * bs * 4] * [(H/bs) * (W/bs) * n_heads，bs * bs * 4，d] = [(H/bs) * (W/bs) * n_heads，bs * bs，d]
 
 然后再映射回原来的维度C
 
-[(H/bs) * (W/bs) * n_heads，bs * bs，D/n_heads] -> [(H/bs) * (W/bs)，bs * bs，D] -> [(H/bs) * (W/bs)，bs * bs，C] -> [H，W，C]
+[(H/bs) * (W/bs) * n_heads，bs * bs，d] -> [(H/bs) * (W/bs)，bs * bs，D] -> [(H/bs) * (W/bs)，bs * bs，C] -> [H，W，C]
 
 ## 算法补充
 ![image](https://user-images.githubusercontent.com/65380826/141232949-6ce9bef4-d672-4993-955e-991f4ce94d75.png)
